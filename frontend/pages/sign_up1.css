@@ -1,0 +1,123 @@
+:root {
+    --width: 600px;
+    --height: 60px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    transition: 0.4s ease;
+}
+
+.yatra-one-regular {
+    font-family: "Yatra One", serif;
+    font-weight: 400;
+    font-style: normal;
+} 
+
+.merriweather-sans{
+    font-family: "Merriweather Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.mainContainer{
+    display: flex;
+}
+
+.container1{
+    width: 50vw;
+    height: 100vh;
+    background-image: linear-gradient(132deg, rgba(128, 0, 0, 0.70) 50%, rgba(255, 139, 23, 0.70) 100%), url("./images/Vector.png"),url("./images/signun-bg.jpg");
+    background-position: center, center calc(50% - 30px), center left calc(50% - 30px);
+    background-size: cover, cover, cover;
+}
+
+.container2{
+    width: 50vw;
+    height: 100vh;
+    background-color:antiquewhite;
+}
+
+.logo{
+    width:60px;
+    height: 60px;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: antiquewhite;
+    border-radius: 65%;
+}
+
+.logoname{
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: x-large;
+    color: white;
+}
+
+.Welcome{
+    margin-top: 70px;
+    margin-left: 50px;
+    color: white;
+    font-size: 490%;
+}
+
+.description{
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 200px;
+    color: white;
+    font-size: 133%;
+}
+
+.subheading{
+    margin-top: 125px;
+    margin-left: 100px;
+    font-size: 470%;
+    color: rgb(132, 2, 2);
+}
+
+button{
+    margin-left: 100px;
+    border-radius: 20px;
+    background-color: rgb(132, 2, 2);
+    color: white;
+    width: var(--width);
+    height: var(--height);
+    border: 4px solid rgb(132, 2, 2);
+    font-size: large;
+}
+
+button:hover {
+    scale: 1.05;
+}
+
+h2{
+    width: 70%; 
+    text-align: center; 
+    border-bottom: 1px solid rgb(132, 2, 2); 
+    line-height: 0.1em;
+    margin: 45px 0 0px; 
+    margin-left: 130px;
+    color: rgb(132, 2, 2);
+} 
+ 
+h2 span {
+    background:antiquewhite; 
+    padding:0 10px;
+    font-weight: lighter;
+    font-size: x-large;  
+}
+
+
+.create-account{
+    margin-left: 100px;
+    color: rgb(132, 2, 2);
+    margin-top: 20px;
+}
+
+.create-account a{
+    text-decoration: none;
+    color: rgb(132, 2, 2);
+    font-size: 135%;
+}
