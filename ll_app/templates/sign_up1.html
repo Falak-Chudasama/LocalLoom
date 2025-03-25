@@ -43,16 +43,13 @@
             <h2><span>OR</span></h2>
             <button style="margin-top: 45px;" class="merriweather-sans busButton">Business</button>
             <p class="create-account">
-                <a href="#" style="font-family: 'Times New Roman', Times, serif;">Not new? Click Me</a>
+                <a href="/sign_in" style="font-family: 'Times New Roman', Times, serif;">Not new? <u>Click Me</u></a>
             </p>
         </div>
     </div>
-    <script>
-        const businessButton = document.querySelector(".busButton");
-        businessButton.addEventListener("click",()=>{
-            window.location.href = "/sign_up3";
-        });
-    </script>
+
+    <script src="{% static 'js/sign_up1.js' %}"></script>
+
 </body>
 
 </html>
