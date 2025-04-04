@@ -1,6 +1,6 @@
 :root {
     --width: 230px;
-    --height: 50px;
+    --height: 45px;
 }
 
 *{
@@ -29,7 +29,9 @@
     width: 50vw;
     height: 100vh;
     /* background-color: rgb(242, 92, 92); */
-    background: linear-gradient(132deg, rgba(128, 0, 0, 0.70) 50%, rgba(255, 139, 23, 0.70) 100%), url("./images/bgImage.jpg") lightgray 50% / cover no-repeat;
+    background-image: linear-gradient(132deg, rgba(128, 0, 0, 0.70) 50%, rgba(255, 139, 23, 0.70) 100%), url("./images/Vector.png"),url("./images/signun-bg.jpg");
+    background-position: center, center calc(50% - 30px), center left calc(50% - 30px);
+    background-size: cover, cover, cover;
 }
 
 .container2{

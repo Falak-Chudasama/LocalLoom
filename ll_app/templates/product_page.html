@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Yatra+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/product_page.css' %}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo" style="margin: 19px 0px 27px 29px;"></div>
+        <p> Logo here </p>
+        <p style="font-size: 170%;"> Home </p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none" class="cart">
+            <path
+                d="M10.3915 7.48H43.32L38.84 23.16H12.8038M41.08 32.12H14.2L9.72 3H3M16.44 41.08C16.44 42.3171 15.4371 43.32 14.2 43.32C12.9629 43.32 11.96 42.3171 11.96 41.08C11.96 39.8428 12.9629 38.84 14.2 38.84C15.4371 38.84 16.44 39.8428 16.44 41.08ZM41.08 41.08C41.08 42.3171 40.0771 43.32 38.84 43.32C37.6028 43.32 36.6 42.3171 36.6 41.08C36.6 39.8428 37.6028 38.84 38.84 38.84C40.0771 38.84 41.08 39.8428 41.08 41.08Z"
+                stroke="#F8F1E5" stroke-width="4.48" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="logo" style="margin: 19px 0px 27px 35px;"></div>
+    </nav>
+    <div class="container1">
+        <div class="img" style="background-image: url('{% static 'images/ganeshIdol.jpg' %}');"></div>
+        <div class="description">
+            <h1 class="name"> Wooden Carved Ganesh Idol </h1>
+            <p> Handcrafted by skilled artisans, this Wooden Ganesh Idol is intricately <br> carved from premium wood,
+                showcasing divine elegance and traditional<br> craftsmanship. Perfect for home temples, festive decor,
+                or gifting, this<br> idol symbolizes wisdom, prosperity, and good fortune.</p>
+            <div class="rating">
+                <p> 4.8 </p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="27" viewBox="0 0 28 27" fill="none">
+                    <path
+                        d="M13.2797 0.442229C13.4713 -0.14741 14.3055 -0.147409 14.4971 0.442229L17.337 9.18242C17.4226 9.44611 17.6684 9.62465 17.9456 9.62465H27.1356C27.7556 9.62465 28.0134 10.418 27.5118 10.7824L20.0769 16.1841C19.8526 16.3471 19.7588 16.636 19.8444 16.8997L22.6843 25.6399C22.8759 26.2295 22.201 26.7198 21.6994 26.3554L14.2646 20.9537C14.0403 20.7907 13.7365 20.7907 13.5122 20.9537L6.07738 26.3554C5.57581 26.7198 4.90094 26.2295 5.09253 25.6399L7.93238 16.8997C8.01806 16.636 7.9242 16.3471 7.69989 16.1841L0.265044 10.7824C-0.236533 10.418 0.0212442 9.62465 0.641227 9.62465H9.8312C10.1085 9.62465 10.3542 9.44611 10.4399 9.18242L13.2797 0.442229Z"
+                        fill="#FFD700" />
+                </svg>
+                <p id="review"> 138 reviews </p>
+            </div>
+            <h1 id="price"> &#8377 5,000 </h1>
+            <div class="buttons">
+                <button class="buy"> Buy Now </button>
+                <button class="add"> Add to Cart </button>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <h1> Details </h1>
+        <h1> Reviews </h1>
+        <h1> Artisan </h1>
+    </div>
+    <div class="scroll">
+        <div class="scroll1"></div>
+        <div class="highlight"> </div>
+    </div>
+    <p> Elevate your space with this Handcrafted Wooden Ganesh Idol, meticulously carved by skilled artisans from
+        premium- <br> quality wood. Designed with intricate detailing, this idol embodies divine elegance and reflects the
+        beauty of traditional <br> craftsmanship. A symbol of wisdom, prosperity, and good fortune, it is perfect for home
+        temples, festive décor, or <br> thoughtful gifting. Bring home this sacred masterpiece and invite positivity into
+        your surroundings.
+    </p>
+</body>
+<script src="{% static 'js/product_page.js' %}"></script>
+</html>

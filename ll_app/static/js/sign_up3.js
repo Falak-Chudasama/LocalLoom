@@ -36,6 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // });
 
         // For now, just redirect to the sign_up4 page after form submission
-        window.location.href = "/sign_up4/";
+        window.location.href = "/sign_in/";
     });
 });

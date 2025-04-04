@@ -17,6 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Redirect to sign_in page after submission
-        window.location.href = "/sign_in/";
+        window.location.href = "/sign_up3/";
     });
 });

@@ -6,19 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Yatra+One&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
-        
 </head>
 
 <body>
     <div class="mainContainer">
-        <label for=""></label>
         <div class="container1">
             <div class="left-side">
                 <div style="display: flex;">
@@ -41,25 +39,23 @@
             <div class="subheading yatra-one-regular">Sign In</div>
             <p style="margin-left: 100px; color: rgb(132, 2, 2); font-size: 140%;">Please fill the following
                 fields</p>
-            <form>
+            <form method="POST" action="{% url 'sign_in' %}">
+                {% csrf_token %}
                 <div class="form-group">
                     <label for="email" class="merriweather-sans"> Email/Mobile </label>
-                    <input id="email" type="email" required>
+                    <input id="email" name="email" type="email" required>
                 </div>
                 <div class="form-group" style="margin-top: 20px;">
                     <label for="password" class="merriweather-sans"> Password </label>
-                    <input id="password" type="password" required>
+                    <input id="password" name="password" type="password" required>
                 </div>
-                <button type="submit" class="merriweather-sans">Sign In</button>
+                <button type="submit" class="merriweather-sans"> Sign In </button>
             </form>
             <p class="create-account">
-                <a href="/sign_up1">Create Account</a>
+                <a href="{% url 'sign_up1' %}"><u>Create Account</u></a>
             </p>
         </div>
     </div>
-
-    <script src="{% static 'js/sign_in.js' %}"></script>
-
 </body>
-
+<script src="{% static 'js/sign_in.js' %}"></script>
 </html>
