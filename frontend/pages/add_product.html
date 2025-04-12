@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yatra+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="add_product.css">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="left">
+                <div class="logo"></div>
+                <p>Logo here</p>
+            </div>
+            <p class="center">Home</p>
+            <div class="right">
+                <div class="logo"></div>
+            </div>
+        </nav>
+        <div class="heading">
+            <div class="line-one">  
+                <h1>Sell</h1>
+                <p>your</p>
+                <h2>Art</h2>
+            </div>
+            <div class="line-two">
+                <p>to</p>
+                <h2>Customers</h2>
+            </div>
+        </div>
+    </div>
+    <div class="title">
+        <div></div>
+        <p>Fill the Following fields</p>
+        <div></div>
+    </div>
+    <div class="input1">
+        <label for="productname" style="top: 100px; left: 21px;">Product Name</label>
+        <input id="productname" type="text" placeholder="Eg: Wooden Ganesh Idol">
+        <label for="cost" style="top: 102px; left: 640px;">Cost</label>
+        <input id="cost" type="text" placeholder="Eg: 5000">
+        <label for="productimage" style="top: 102px; left: 840px;">Product Image</label>
+        <input type="text" id="productimage">
+    </div>
+    <div class="input2">
+        <label for="length" style="left: 21px;">Length</label>
+        <input type="text" id="length" placeholder="Eg: 100cm">
+        <label for="width" style="left: 220px;">Width</label>
+        <input type="text" id="width" placeholder="Eg: 20cm">
+        <label for="height" style="left: 54%;">Height</label>
+        <input type="text" id="height" placeholder="Eg: 160cm">
+        <label for="weight" style="left: 80%;">Weight</label>
+        <input type="text" id="weight" placeholder="Eg: 300g">
+    </div>
+    <div class="input3">
+        <div class="feature-container">
+            <label for="feature">Feature</label>
+            <input type="text" id="feature" placeholder="Eg: Premium Wood">
+        </div>
+        <a href="#" class="add-feature">Add Feature</a>
+    </div>
+    <div class="location-section">
+        <div class="state-container">
+            <label for="state">State</label>
+            <select id="state">
+                <option value="maharashtra">Maharashtra</option>
+            </select>
+        </div>
+        <div class="region-container">
+            <label for="region">Region</label>
+            <select id="region">
+                <option value="mumbai">Mumbai</option>
+            </select>
+        </div>
+    </div>
+    <div class="description-section">
+        <div class="product-description">
+            <label for="description">Product Description</label>
+            <textarea id="description"></textarea>
+        </div>
+        <div class="product-details">
+            <label for="details">Product Details</label>
+            <textarea id="details"></textarea>
+        </div>
+    </div>
+    <button class="add-product">Add Product</button>
+</body>
+
+</html>
