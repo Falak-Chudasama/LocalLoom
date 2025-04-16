@@ -1,0 +1,488 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F1E5;
+}
+
+.yatra-one-regular {
+    font-family: "Yatra One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.merriweather-sans {
+    font-family: "Merriweather Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.container {
+    position: relative;
+    background-image: linear-gradient(358deg, rgba(128, 0, 0, 0.60) 21.03%, rgba(255, 139, 23, 0.60) 98%), url("./images/Vector.png"), url("./images/home\ bg.jpg");
+    width: 1520px;
+    height: 575px;
+    border-radius: 0px 0px 30px 30px;
+    flex-shrink: 0;
+}
+
+.navbar {
+    width: 1500px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #800000;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+    position: relative;
+    top: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 11px;
+}
+
+.left,
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.left {
+    margin-left: 29px;
+}
+
+.right {
+    margin-right: 29px;
+}
+
+.left p {
+    font-size: x-large;
+    font-family: 'Merriweather Sans', sans-serif;
+    color: #ffff;
+    font-weight: lighter;
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 170%;
+    color: #ffff;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: lighter;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+p {
+    margin: 0 10px;
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    margin: 116px 0px 0px 75px;
+}
+
+.heading h1 {
+    color: #F8F1E5;
+    font-family: "Merriweather Sans";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.heading h2 {
+    color: #F8F1E5;
+    font-family: "Yatra One";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.heading p {
+    color: #F8F1E5;
+    font-family: "Merriweather Sans";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.line-one,
+.line-two {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 21px;
+    top: 47px;
+}
+
+.title div {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    flex-shrink: 0;
+    background: #800000;
+}
+
+.title p {
+    color: #800000;
+    text-align: center;
+    font-family: "Merriweather Sans";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input1 {
+    position: relative;
+    left: 100px;
+    width: max-content;
+}
+
+#productname {
+    width: 595px;
+    height: 75px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    border: 3px solid #800000;
+    background: #F8F1E5;
+    margin-top: 121px;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    padding-left: 21px;
+}
+
+/* Placeholder styles */
+#productname::placeholder,
+#cost::placeholder,
+#productimage::placeholder,
+#length::placeholder,
+#width::placeholder,
+#height::placeholder,
+#weight::placeholder {
+    font-size: 21px;
+    color: #999;
+}
+
+.input1 label {
+    position: absolute;
+    background-color: #F8F1E5;
+    color: #800000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    font-family: "Poppins", sans-serif;
+    padding-left: 6px;
+    padding-right: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#cost {
+    width: 178px;
+    height: 75px;
+    border-radius: 12px;
+    border: 3px solid #800000;
+    background: #F8F1E5;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    padding-left: 21px;
+    margin-left: 20px;
+}
+
+#productimage {
+    width: 255px;
+    height: 75px;
+    background: transparent;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    margin-left: 106%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-top: -56px;
+    position: absolute;
+    display: block;
+}
+
+/* Hide the default file input button */
+#productimage::-webkit-file-upload-button {
+    display: none;
+}
+
+/* Style the file input text */
+#productimage::before {
+    content: 'Choose Image';
+    position: absolute;
+    display: inline-block;
+    background: #800000;
+    color: #F8F1E5;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#productimage:hover::before {
+    background: #900000;
+}
+
+/* Hide the file name text */
+#productimage {
+    color: transparent;
+}
+
+#productimage::-webkit-file-upload-text {
+    display: none;
+}
+
+.input2 {
+    position: relative;
+    left: 100px;
+    width: max-content;
+    top: 40px;
+    display: flex;
+    gap: 20px;
+}
+
+.input2 label {
+    position: absolute;
+    background-color: #F8F1E5;
+    color: #800000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-left: 6px;
+    padding-right: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#length, #width, #height, #weight{
+    width: 180px;
+    height: 75px;
+    border-radius: 12px;
+    border: 3px solid #800000;
+    background: #F8F1E5;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    padding-left: 21px;
+    margin-top: 17px;
+}
+
+.input3 {
+    position: relative;
+    left: 100px;
+    top: 86px;  /* Exact spacing from input2 */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: max-content;
+}
+
+.feature-container {
+    position: relative;
+}
+
+.feature-container label {
+    position: absolute;
+    top: -12px;
+    left: 21px;
+    background-color: #F8F1E5;
+    color: #800000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+#feature {
+    width: 400px;
+    height: 75px;
+    border-radius: 12px;
+    border: 3px solid #800000;
+    background: #F8F1E5;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    padding-left: 21px;
+}
+
+.add-feature {
+    color: #800000;
+    font-family: Poppins;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.add-feature:hover {
+    text-decoration: underline;
+}
+
+/* Placeholder styles */
+#productname::placeholder,
+#cost::placeholder,
+#productimage::placeholder,
+#length::placeholder,
+#width::placeholder,
+#height::placeholder,
+#weight::placeholder,
+#feature::placeholder {
+    font-size: 21px;
+    color: #999;
+}
+
+.location-section {
+    position: relative;
+    left: 100px;
+    top: 141px;  /* 86px + 55px from feature */
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+.state-container, .region-container {
+    position: relative;
+}
+
+.state-container label, .region-container label {
+    position: absolute;
+    top: -12px;
+    left: 21px;
+    background-color: #F8F1E5;
+    color: #800000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+#state, #region {
+    width: 255px;
+    height: 75px;
+    border-radius: 12px;
+    border: 3px solid #800000;
+    background: #F8F1E5;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    padding-left: 21px;
+    appearance: none;
+    cursor: pointer;
+    color: #999;
+}
+
+.description-section {
+    position: relative;
+    left: 100px;
+    top: 190px;  /* 141px + 49px from location section */
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+.product-description, .product-details {
+    position: relative;
+}
+
+.product-description label, .product-details label {
+    position: absolute;
+    top: -12px;
+    left: 21px;
+    background-color: #F8F1E5;
+    color: #800000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 0 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+#description, #details {
+    width: 450px;
+    height: 135px;
+    border-radius: 12px;
+    border: 3px solid #800000;
+    background: #F8F1E5;
+    font-size: x-large;
+    font-family: "Poppins", sans-serif;
+    padding: 21px;
+    resize: none;
+}
+
+.add-product {
+    position: relative;
+    left: 100px;
+    top: 237px;  /* 190px + 47px from description section */
+    width: 294px;
+    height: 52px;
+    border-radius: 15px;
+    background: #800000;
+    border: none;
+    color: white;
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.add-product:hover {
+    background: #900000;
+}
+
+/* Add dropdown arrow for select elements */
+.state-container::after,
+.region-container::after {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #800000;
+    pointer-events: none;
+}

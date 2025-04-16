@@ -1,10 +1,13 @@
 # ll_app/views.py
+from django.conf import settings
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt  # TEMPORARY, REMOVE LATER
 from .models import BusinessSignup, ConsumerSignup
 from django.contrib import messages
 import logging
+from django.contrib.auth import logout
 
 def sign_in(request):
     return render(request, 'sign_in.html')
@@ -62,7 +65,7 @@ def consumer_signup(request):
             logger.error("Database error: %s", e)
             messages.error(request, "Error saving data. Try again.")
 
-        return redirect('sign_in')
+        return redirect('home')
 
     return render(request, "sign_up2.html")
 
@@ -126,14 +129,7 @@ def business_signup_step2(request):
         )
         business.save()
 
-        # Clear session data
-        del request.session["email"]
-        del request.session["password"]
-
-        messages.success(request, "Business registered successfully!")
-        return redirect("sign_in")  # Redirect to home or login
-
-    return render(request, "sign_up4.html")
+    return render(request, "home2.html")
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -173,7 +169,58 @@ def sign_in(request):
 
     return render(request, "sign_in.html")
 
-def sign_out(request):
-    request.session.flush()  # Clear all session data
-    messages.success(request, "You have signed out successfully!")
-    return redirect("sign_in")
+def add_product(request):
+    return render(request, 'add_product.html')
+
+from .models import Product
+from django.core.files.storage import FileSystemStorage
+
+def add_product(request):
+    if request.method == 'POST':
+        # Get the POST data from the form
+        product_name = request.POST.get('productname')
+        cost = request.POST.get('cost')
+        length = request.POST.get('length')
+        width = request.POST.get('width')
+        height = request.POST.get('height')
+        weight = request.POST.get('weight')
+        feature = request.POST.get('feature')  # Assuming features will be added manually
+        state = request.POST.get('state')
+        region = request.POST.get('region')
+        description = request.POST.get('description')
+        details = request.POST.get('details')
+
+        # Handle the image upload
+        product_image = request.FILES.get('productimage')
+        image_url = None
+        if product_image:
+            fs = FileSystemStorage(location=settings.MEDIA_ROOT)  # Ensure saving to media folder
+            filename = fs.save(product_image.name, product_image)
+            image_url = fs.url(filename)  # This will give the correct URL to access the image
+
+        
+        # Saving the product to the database
+        product = Product(
+            product_name=product_name,
+            cost=cost,
+            image_url=image_url,
+            length=length,
+            width=width,
+            height=height,
+            weight=weight,
+            features=[feature],  # Assuming single feature for simplicity
+            state=state,
+            region=region,
+            description=description,
+            details=details
+        )
+        product.save()
+
+        # Return a success message in JSON format
+        return JsonResponse({'message': 'Product added successfully'})
+
+    return render(request, 'add_product.html')
+
+def dashboard_view(request):
+    products = Product.objects.all()
+    return render(request, 'dashboard.html', {'products': products})

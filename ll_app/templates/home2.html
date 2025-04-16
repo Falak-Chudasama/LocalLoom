@@ -23,7 +23,9 @@
                 <div class="division"></div>
                 <input type="text" placeholder="Search..."><br>
             </div>
-            <button> Add Product </button>
+            <a href="{% url 'add_product' %}">
+                <button> Add Product </button>
+            </a>            
             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none" class="cart">
                 <path
                     d="M10.3915 7.48H43.32L38.84 23.16H12.8038M41.08 32.12H14.2L9.72 3H3M16.44 41.08C16.44 42.3171 15.4371 43.32 14.2 43.32C12.9629 43.32 11.96 42.3171 11.96 41.08C11.96 39.8428 12.9629 38.84 14.2 38.84C15.4371 38.84 16.44 39.8428 16.44 41.08ZM41.08 41.08C41.08 42.3171 40.0771 43.32 38.84 43.32C37.6028 43.32 36.6 42.3171 36.6 41.08C36.6 39.8428 37.6028 38.84 38.84 38.84C40.0771 38.84 41.08 39.8428 41.08 41.08Z"

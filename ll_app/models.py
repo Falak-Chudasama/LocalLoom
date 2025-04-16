@@ -20,3 +20,20 @@ class BusinessSignup(models.Model):
 
     def __str__(self):
         return self.business_name
+
+class Product(models.Model):
+    product_name = models.CharField(max_length=255)
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    image_url = models.URLField(blank=True)  # This will store the image URL
+    length = models.CharField(max_length=100)
+    width = models.CharField(max_length=100)
+    height = models.CharField(max_length=100)
+    weight = models.CharField(max_length=100)
+    features = models.JSONField(default=list)  # Storing features as a list
+    state = models.CharField(max_length=100)
+    region = models.CharField(max_length=100)
+    description = models.TextField()
+    details = models.TextField()
+
+    def __str__(self):
+        return self.product_name
