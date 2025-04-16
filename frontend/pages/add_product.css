@@ -214,13 +214,53 @@ p {
 #productimage {
     width: 255px;
     height: 75px;
-    border-radius: 12px;
-    border: 3px solid #800000;
-    background: #F8F1E5;
+    background: transparent;
     font-size: x-large;
     font-family: "Poppins", sans-serif;
-    padding-left: 21px;
-    margin-left: 20px;
+    margin-left: 106%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin-top: -56px;
+    position: absolute;
+    display: block;
+}
+
+/* Hide the default file input button */
+#productimage::-webkit-file-upload-button {
+    display: none;
+}
+
+/* Style the file input text */
+#productimage::before {
+    content: 'Choose Image';
+    position: absolute;
+    display: inline-block;
+    background: #800000;
+    color: #F8F1E5;
+    padding: 12px 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    border: none;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#productimage:hover::before {
+    background: #900000;
+}
+
+/* Hide the file name text */
+#productimage {
+    color: transparent;
+}
+
+#productimage::-webkit-file-upload-text {
+    display: none;
 }
 
 .input2 {
