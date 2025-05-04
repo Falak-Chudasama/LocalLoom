@@ -28,22 +28,19 @@
         <div class="logo" style="margin: 19px 0px 27px 35px;"></div>
     </nav>
     <div class="container1">
-        <div class="img" style="background-image: url('{% static 'images/ganeshIdol.jpg' %}');"></div>
+        <div class="">
+            <img src="{{ product.image_url }}" alt="{{ product.product_name }}" class="product">
+        </div>
         <div class="description">
-            <h1 class="name"> Wooden Carved Ganesh Idol </h1>
-            <p> Handcrafted by skilled artisans, this Wooden Ganesh Idol is intricately <br> carved from premium wood,
-                showcasing divine elegance and traditional<br> craftsmanship. Perfect for home temples, festive decor,
-                or gifting, this<br> idol symbolizes wisdom, prosperity, and good fortune.</p>
+            <h1 class="name">{{ product.product_name }}</h1>
+            <p>{{ product.description }}</p>
             <div class="rating">
-                <p> 4.8 </p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="27" viewBox="0 0 28 27" fill="none">
-                    <path
-                        d="M13.2797 0.442229C13.4713 -0.14741 14.3055 -0.147409 14.4971 0.442229L17.337 9.18242C17.4226 9.44611 17.6684 9.62465 17.9456 9.62465H27.1356C27.7556 9.62465 28.0134 10.418 27.5118 10.7824L20.0769 16.1841C19.8526 16.3471 19.7588 16.636 19.8444 16.8997L22.6843 25.6399C22.8759 26.2295 22.201 26.7198 21.6994 26.3554L14.2646 20.9537C14.0403 20.7907 13.7365 20.7907 13.5122 20.9537L6.07738 26.3554C5.57581 26.7198 4.90094 26.2295 5.09253 25.6399L7.93238 16.8997C8.01806 16.636 7.9242 16.3471 7.69989 16.1841L0.265044 10.7824C-0.236533 10.418 0.0212442 9.62465 0.641227 9.62465H9.8312C10.1085 9.62465 10.3542 9.44611 10.4399 9.18242L13.2797 0.442229Z"
-                        fill="#FFD700" />
-                </svg>
-                <p id="review"> 138 reviews </p>
+                <p> {{ product.rating }} </p>
+                <i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i>
+            
+                <p id="review"> {{ product.reviews_count }} reviews </p>
             </div>
-            <h1 id="price"> &#8377 5,000 </h1>
+            <h1 id="price"> &#8377;{{ product.cost }}</h1>
             <div class="buttons">
                 <button class="buy"> Buy Now </button>
                 <button class="add"> Add to Cart </button>
@@ -59,12 +56,15 @@
         <div class="scroll1"></div>
         <div class="highlight"> </div>
     </div>
-    <p> Elevate your space with this Handcrafted Wooden Ganesh Idol, meticulously carved by skilled artisans from
-        premium- <br> quality wood. Designed with intricate detailing, this idol embodies divine elegance and reflects the
-        beauty of traditional <br> craftsmanship. A symbol of wisdom, prosperity, and good fortune, it is perfect for home
-        temples, festive décor, or <br> thoughtful gifting. Bring home this sacred masterpiece and invite positivity into
-        your surroundings.
-    </p>
+    <div class="details"> 
+        <p> Elevate your space wiwth this Handcrafted Wooden Ganesh Idol, meticulously carved by skilled artisans from
+            premium- <br> quality wood. Designed with intricate detailing, this idol embodies divine elegance and reflects the
+            beauty of traditional <br> craftsmanship. A symbol of wisdom, prosperity, and good fortune, it is perfect for home
+            temples, festive décor, or <br> thoughtful gifting. Bring home this sacred masterpiece and invite positivity into
+            your surroundings.
+        </p>
+    </div>
+    
 </body>
 <script src="{% static 'js/product_page.js' %}"></script>
 </html>

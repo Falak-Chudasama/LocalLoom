@@ -39,13 +39,17 @@
         </div>
         <div class="card">
             <div>
-            {% for product in products %}
-                <p class="yatra-one-regular price"> &#8377 {{ product.cost }} </p>
-                <img src="{{ product.image_url }}" alt="{{ product.product_name }}" class="product">
-                <!-- <img src="/media/ganeshIdol.webp" alt="Test Image"> -->
-                <p class="merriweather-sans name">{{ product.product_name }}</p>
-            {% endfor %}
+                {% for product in products %}
+                    <a href="{% url 'product_page' product.id %}" style="text-decoration: none; color: inherit;">
+                        <div style="cursor: pointer;">
+                            <p class="yatra-one-regular price"> &#8377 {{ product.cost }} </p>
+                            <img src="{{ product.image_url }}" alt="{{ product.product_name }}" class="product">
+                            <p class="merriweather-sans name">{{ product.product_name }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
             </div>
+            
             <div>
                 <p class="yatra-one-regular price"> &#8377 2000 </p>
                 <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product">

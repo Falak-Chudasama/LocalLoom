@@ -1,13 +1,14 @@
 # ll_app/views.py
 from django.conf import settings
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import Http404, JsonResponse
+from django.shortcuts import get_object_or_404, render
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt  # TEMPORARY, REMOVE LATER
 from .models import BusinessSignup, ConsumerSignup
 from django.contrib import messages
 import logging
 from django.contrib.auth import logout
+from bson import ObjectId 
 
 def sign_in(request):
     return render(request, 'sign_in.html')
@@ -26,13 +27,17 @@ def sign_up4(request):
 
 def home(request):
     products = Product.objects.all() 
+    for p in products:
+        p.id = str(p._id)
     return render(request, 'home.html', {'products': products})
 
 def home2(request):
     return render(request, 'home2.html')
 
-def product_page(request):
-    return render(request, 'product_page.html')
+def product_page(request, product_id):
+    product = get_object_or_404(Product, _id=ObjectId(product_id))
+    return render(request, 'product_page.html', {'product': product})
+
 
 logger = logging.getLogger(__name__)
 
@@ -221,6 +226,23 @@ def add_product(request):
 
     return render(request, 'add_product.html')
 
+from django.http import JsonResponse
+from django.shortcuts import render
+from .models import Product
+
 def dashboard_view(request):
     products = Product.objects.all()
+    
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+        try:
+            data = [
+                {'id': str(product._id), 'name': product.product_name}
+                for product in products
+            ]
+            return JsonResponse({'products': data})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
     return render(request, 'dashboard.html', {'products': products})
+
+

@@ -132,6 +132,7 @@ body {
     display: flex;
     margin: 240px 0px 46px 122px;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .product {
