@@ -25,14 +25,14 @@ def sign_up4(request):
     return render(request, 'sign_up4.html')
 
 def home(request):
-    return render(request, 'home.html') 
+    products = Product.objects.all() 
+    return render(request, 'home.html', {'products': products})
 
 def home2(request):
     return render(request, 'home2.html')
 
 def product_page(request):
     return render(request, 'product_page.html')
-
 
 logger = logging.getLogger(__name__)
 

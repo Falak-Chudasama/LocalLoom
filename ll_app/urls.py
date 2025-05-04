@@ -23,4 +23,7 @@ urlpatterns = [
     
     path('add_product/', views.add_product, name='add_product'),
     path('dashboard/', views.dashboard_view, name='dashboard'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

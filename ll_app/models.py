@@ -23,7 +23,7 @@ class BusinessSignup(models.Model):
 
 class Product(models.Model):
     product_name = models.CharField(max_length=255)
-    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    cost = models.DecimalField(max_digits=10, decimal_places=0)
     image_url = models.URLField(blank=True)  # This will store the image URL
     length = models.CharField(max_length=100)
     width = models.CharField(max_length=100)
