@@ -1,0 +1,191 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/add_product.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  <!-- SweetAlert2 -->
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="left">
+                <div class="logo"></div>
+                <p>Logo here</p>
+            </div>
+            <p class="center">Home</p>
+            <div class="right">
+                <div class="logo"></div>
+            </div>
+        </nav>
+        <div class="heading">
+            <div class="line-one">  
+                <h1>Sell</h1>
+                <p>your</p>
+                <h2>Art</h2>
+            </div>
+            <div class="line-two">
+                <p>to</p>
+                <h2>Customers</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+        <div></div>
+        <p>Fill the Following fields</p>
+        <div></div>
+    </div>
+
+    <form id="add-product-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input1">
+            <label for="productname" style="top: 100px; left: 21px;">Product Name</label>
+            <input id="productname" name="productname" type="text" placeholder="Eg: Wooden Ganesh Idol" required>
+            <label for="cost" style="top: 102px; left: 640px;">Cost</label>
+            <input id="cost" name="cost" type="text" placeholder="Eg: 5000" required>
+            <label for="productimage" style="top: 102px; left: 840px;">Product Image</label>
+            <input type="file" id="productimage" name="productimage" accept="image/*">
+        </div>
+
+        <div class="input2">
+            <label for="length" style="left: 21px;">Length</label>
+            <input type="text" id="length" name="length" placeholder="Eg: 100cm" required>
+            <label for="width" style="left: 220px;">Width</label>
+            <input type="text" id="width" name="width" placeholder="Eg: 20cm" required>
+            <label for="height" style="left: 54%;">Height</label>
+            <input type="text" id="height" name="height" placeholder="Eg: 160cm" required>
+            <label for="weight" style="left: 80%;">Weight</label>
+            <input type="text" id="weight" name="weight" placeholder="Eg: 300g" required>
+        </div>
+
+        <div class="input3">
+        <div class="features-container">
+            <div class="feature-container">
+                <label for="feature">Feature</label>
+                <input type="text" id="feature" name="feature" placeholder="Eg: Premium Wood">
+            </div>
+        </div>
+            <h3 class="add-feature">Add Feature</h3>
+        </div>
+
+        <div class="location-section">
+            <div class="state-container">
+                <label for="state">State</label>
+                <select id="state" name="state">
+                    <option value="">-- Select State --</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Delhi">Delhi</option>
+                </select>
+            </div>
+            <div class="region-container">
+                <label for="region">Region</label>
+                <select id="region" name="region">
+                    <option value="east">East</option>
+                    <option value="north">North</option>
+                    <option value="north-east">North East</option>
+                    <option value="south">South</option>
+                    <option value="West">West</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <div class="product-description">
+                <label for="description">Product Description</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="product-details">
+                <label for="details">Product Details</label>
+                <textarea id="details" name="details"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="add-product">Add Product</button>
+    </form>
+
+    <div id="response-message"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#add-product-form').on('submit', function(event) {
+                event.preventDefault();
+
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: '{% url "add_product" %}',  // URL for the add_product view
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response) {
+                        // Assuming response contains success or failure message
+                        if (response.success) {
+                            // Show success message and redirect
+                            Swal.fire({
+                                title: 'Success!',
+                                text: 'Product added successfully!',
+                                icon: 'success',
+                                confirmButtonText: 'OK'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.history.back(); // Redirect to the previous page
+                                }
+                            });
+                        } else {
+                            // Show failure message
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'Failed to add product. Please try again.',
+                                icon: 'error',
+                                confirmButtonText: 'OK'
+                            });
+                        }
+                    },
+                    error: function() {
+                        // Handle any error with the AJAX request itself
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Something went wrong. Please try again later.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+
+            // Add new feature input on clicking "Add Feature"
+            $('.add-feature').on('click', function() {
+                const newFeature = `
+                    <div class="feature-container">
+                        <label for="feature">Feature</label>
+                        <input type="text" name="feature" placeholder="Eg: Premium Wood">
+                    </div>`;
+                $('.features-container').append(newFeature);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

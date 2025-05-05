@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Step 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300..800;1,300..800&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/sign_up3.css' %}">
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="container1">
+            <div class="left-side">
+                <div style="display: flex;">
+                    <div class="logo"></div>
+                    <p class="logoname merriweather-sans">Logo Here</p>
+                </div>
+                <h1 class="Welcome yatra-one-regular">Welcome to LocalLoom!</h1>
+                <p class="description merriweather-sans">
+                    Bringing India's finest local treasures straight to your doorstep.
+                    Support artisans, celebrate tradition, and shop with pride!
+                </p>
+            </div>
+        </div>
+
+        <div class="container2">
+            <div class="subheading yatra-one-regular">Sign Up</div>
+            <p style="margin-left: 100px; color: rgb(132, 2, 2); font-size: 140%;">Please fill in the following fields</p>
+            
+            <form method="POST" action="{% url 'business_signup_step1' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email" class="merriweather-sans"> Email ID </label>
+                    <input id="email" name="email" type="email" required>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="password" class="merriweather-sans"> Password </label>
+                    <input id="password" name="password" type="password" required>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="confirm_password" class="merriweather-sans"> Confirm Password </label>
+                    <input id="confirm_password" name="confirm_password" type="password" required>
+                </div>
+                <button type="submit" class="merriweather-sans">Proceed</button>
+            </form>
+
+            
+        </div>
+    </div>
+</body>
+</html>

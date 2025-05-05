@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Yatra+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/product_page.css' %}">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo" style="margin: 19px 0px 27px 29px;"></div>
+        <p> Logo here </p>
+        <p style="font-size: 170%;"> Home </p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none" class="cart">
+            <path
+                d="M10.3915 7.48H43.32L38.84 23.16H12.8038M41.08 32.12H14.2L9.72 3H3M16.44 41.08C16.44 42.3171 15.4371 43.32 14.2 43.32C12.9629 43.32 11.96 42.3171 11.96 41.08C11.96 39.8428 12.9629 38.84 14.2 38.84C15.4371 38.84 16.44 39.8428 16.44 41.08ZM41.08 41.08C41.08 42.3171 40.0771 43.32 38.84 43.32C37.6028 43.32 36.6 42.3171 36.6 41.08C36.6 39.8428 37.6028 38.84 38.84 38.84C40.0771 38.84 41.08 39.8428 41.08 41.08Z"
+                stroke="#F8F1E5" stroke-width="4.48" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <div class="logo" style="margin: 19px 0px 27px 35px;"></div>
+    </nav>
+    <div class="container1">
+        <div class="">
+            <img src="{{ product.image_url }}" alt="{{ product.product_name }}" class="product">
+        </div>
+        <div class="description">
+            <h1 class="name">{{ product.product_name }}</h1>
+            <p>{{ product.description }}</p>
+            <div class="rating">
+                <p> {{ product.rating }} </p>
+                <i class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i
+                    class="fa-solid fa-star star"></i><i class="fa-solid fa-star star"></i><i
+                    class="fa-solid fa-star star"></i>
+
+                <p id="review"> {{ product.reviews_count }} reviews </p>
+            </div>
+            <h1 id="price"> &#8377;{{ product.cost }}</h1>
+            <div class="buttons">
+                <button class="buy"> Buy Now </button>
+                <button class="add"> Add to Cart </button>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <h1> Details </h1>
+        <h1> Reviews </h1>
+        <h1> Artisan </h1>
+    </div>
+    <div class="scroll">
+        <div class="scroll1"></div>
+        <div class="highlight"> </div>
+    </div>
+    <div class="details">
+        <p style="max-width: 1536px; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;">
+            {{ product.details }}
+        </p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- <script src="{% static 'js/product_page.js' %}"></script> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buyBtn = document.querySelector('.buy'); // Get the "Buy Now" button
+        if (!buyBtn) return;
+
+        buyBtn.addEventListener('click', function () {
+            console.log('Buy Now button clicked'); // Debugging line to check if click works
+
+            const productName = document.querySelector('.name')?.textContent || '';
+            const productPrice = document.getElementById('price')?.textContent.replace(/\D/g, '') || '';
+
+            // Trigger the SweetAlert2 popup
+            Swal.fire({
+                title: 'Confirm Purchase',
+                html: `
+                        <form id="orderForm">
+                            <div style="margin-bottom: 10px;">
+                                <label for="address">Address:</label>
+                                <textarea id="address" rows="3" style="width: 100%;"></textarea>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" value="1" min="1" style="width: 100%;" />
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <label for="payment_mode">Payment Mode:</label>
+                                <select id="payment_mode" style="width: 100%;">
+                                    <option value="UPI">UPI</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Card">Card</option>
+                                    <option value="NetBanking">Net Banking</option>
+                                </select>
+                            </div>
+                        </form>
+                    `,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Buy Now',
+                cancelButtonText: 'Cancel',
+                confirmButtonColor: '#4CAF50',
+                cancelButtonColor: '#d33',
+                preConfirm: () => {
+                    const address = document.getElementById('address').value;
+                    const quantity = document.getElementById('quantity').value;
+                    const paymentMode = document.getElementById('payment_mode').value;
+
+                    // Validate the form fields
+                    if (!address || quantity < 1 || !paymentMode) {
+                        Swal.showValidationMessage('Please fill out all fields correctly.');
+                        return false;
+                    }
+
+                    // Return the form data for further processing
+                    return { address, quantity, paymentMode, productName, productPrice };
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const { address, quantity, paymentMode, productName, productPrice } = result.value;
+
+                    Swal.fire({
+                        title: 'Purchase Successful!',
+                        text: `Thank you for purchasing ${productName} for ₹${productPrice * quantity}. Order details: 
+                                Address: ${address} 
+                                Quantity: ${quantity} 
+                                Payment Mode: ${paymentMode}`,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#4CAF50'
+                    });
+
+                    // Here, you can submit the order data to your server to create the order.
+                    // Example:
+                    fetch('/api/orders/', { // this API does not exist, find one from urls.py or views.py that works
+                        method: 'POST',
+                        body: JSON.stringify({ address, quantity, paymentMode, productName, productPrice }),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(response => response.json())
+                        .then(data => console.log('Order submitted', data))
+                        .catch(error => console.error('Error submitting order:', error));
+
+                    preConfirm: () => {
+                        const address = document.getElementById('swal-address').value;
+                        const quantity = document.getElementById('swal-quantity').value;
+                        const payment = document.getElementById('swal-payment').value;
+
+                        console.log("Address:", address);
+                        console.log("Quantity:", quantity);
+                        console.log("Payment:", payment);
+
+                        if (!address || !payment || !quantity) {
+                            Swal.showValidationMessage('Please fill all fields');
+                            return false;
+                        }
+
+                        document.getElementById('orderAddress').value = address;
+                        document.getElementById('orderQuantity').value = quantity;
+                        document.getElementById('orderPaymentMode').value = payment;
+                        document.getElementById('orderForm').submit();
+                    }
+
+                }
+            });
+        });
+    });
+</script>
+
+</html>

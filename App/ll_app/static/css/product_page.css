@@ -1,0 +1,212 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #F8F1E5;
+}
+
+.yatra-one-regular {
+    font-family: "Yatra One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.merriweather-sans {
+    font-family: "Merriweather Sans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.navbar {
+    width: 1500px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background: #800000;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 17px;
+    margin-left: 11px;
+    display: flex;
+    position: relative;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+.navbar p {
+    margin: 34px 496px 32px 10px;
+    color: white;
+    font-size: x-large;
+    font-weight: lighter;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+.cart {
+    margin: 28px 0px 31.7px 48px;
+}
+
+.conatiner1 {
+    display: flex;
+    margin-top: 72px;
+}
+
+.product {
+    width: 450px;
+    height: 450px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 30px;
+    margin: 20px 0px 0px 47px;
+}
+
+.name {
+    color: #800000;
+    font-family: "Merriweather Sans";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 11px 0px 0px 43px;
+}
+
+.description p {
+    width: 681px;
+    color: #800000;
+    font-family: "Merriweather Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin: 21px 0px 0px 43px;
+}
+
+.rating {
+    display: flex;
+}
+
+.rating p {
+    color: #FFD700;
+    font-family: "Merriweather Sans";
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    width: fit-content;
+}
+
+.rating svg {
+    margin: 21px 0px 0px 6px;
+}
+
+#review {
+    color: #000;
+    font-family: "Merriweather Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 25px 0px 0px 20.22px;
+}
+
+#price {
+    color: #800000;
+    font-family: "Merriweather Sans";
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 34px 0px 0px 43px;
+}
+
+.buttons {
+    display: flex;
+    margin: 34px 0px 0px 43px;
+}
+
+.buy {
+    width: 261px;
+    height: 51px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #800000;
+    color: #FFF;
+    text-align: center;
+    font-family: "Merriweather Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border-style: none;
+}
+
+.add {
+    width: 261px;
+    height: 51px;
+    border-radius: 10px;
+    border: 4px solid #800000;
+    background: #F8F1E5;
+    color: #800000;
+    text-align: center;
+    font-family: "Merriweather Sans";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-left: 20px;
+}
+
+.info {
+    margin: 70px 0px 12px 69px;
+    display: flex;
+    gap: 96px;
+}
+
+.info h1 {
+    color: #999;
+    text-align: center;
+    font-family: "Merriweather Sans";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.scroll{
+    position: relative;
+    margin: 0px 0px 0px 47px;
+}
+
+.scroll1{
+    width: 1450px;
+    height: 10px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: rgba(128, 0, 0, 0.20);
+    position: absolute;
+}
+
+.highlight {
+    width: 178px;
+    height: 14px;
+    flex-shrink: 0;
+    border-radius: 10px 10px 0px 0px;
+    background: #800000;
+    position: absolute;
+}
+
+.details{
+    margin: 60px 0px 0px 47px;
+}
+
+.star{
+    margin: 30px 0px 0px 18px;
+    color : yellow;
+}

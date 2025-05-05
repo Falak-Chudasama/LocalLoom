@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Step 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300..800&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/sign_up4.css' %}">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="container1">
+            <div class="left-side">
+                <div style="display: flex;">
+                    <div class="logo"></div>
+                    <p class="logoname merriweather-sans">Logo Here</p>
+                </div>
+                <h1 class="Welcome yatra-one-regular">Welcome Back<br> to LocalLoom!</h1>
+                <p class="description merriweather-sans">
+                    Bringing India's finest local treasures straight to your doorstep.
+                    Support artisans, celebrate tradition, and shop with pride!
+                </p>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="subheading yatra-one-regular">Sign Up</div>
+            <p class="merriweather-sans" style="margin-left: 100px; color: rgb(132, 2, 2); font-size: 140%;">Please fill in the following fields</p>
+            
+            <form method="POST" action="{% url 'business_signup_step2' %}">
+                {% csrf_token %}
+                <!-- Hidden fields to carry data from Step 3 -->
+                <input type="hidden" name="email" value="{{ request.session.email }}">
+                <input type="hidden" name="password" value="{{ request.session.password }}">
+
+                <div class="form-group">
+                    <label for="bname" class="merriweather-sans">Business Name</label>
+                    <input type="text" id="bname" name="business_name" required>
+                    <label for="region" class="merriweather-sans label2">Region</label>
+                    <input type="text" id="region" name="region" required>
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="businessid" class="merriweather-sans">Business ID</label>
+                    <input type="text" id="businessid" name="business_id" required>
+                    <label for="mobile" class="merriweather-sans label2">Mobile</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+
+                <button type="submit" class="merriweather-sans">Proceed</button>
+            </form>
+            
+        </div>
+    </div>
+</body>
+<!-- <script src="{% static 'js/sign_up4.js' %}"></script> -->
+</html>

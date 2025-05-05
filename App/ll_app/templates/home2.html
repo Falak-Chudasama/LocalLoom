@@ -1,0 +1,222 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page (Business)</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Yatra+One&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/home2.css' %}">
+</head>
+<body>
+    <div class="container1">
+        <nav class="navbar">
+            <div class="logo" style="margin: 19px 0px 27px 29px;"></div>
+            <p class="merriweather-sans"> Logo here </p>
+            <div class="searchbar">
+                <i class="fa-solid fa-magnifying-glass" style="color: #800000;"></i>
+                <div class="division"></div>
+                <input type="text" placeholder="Search..."><br>
+            </div>
+            <a href="{% url 'add_product' %}">
+                <button> Add Product </button>
+            </a>            
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none" class="cart">
+                <path
+                    d="M10.3915 7.48H43.32L38.84 23.16H12.8038M41.08 32.12H14.2L9.72 3H3M16.44 41.08C16.44 42.3171 15.4371 43.32 14.2 43.32C12.9629 43.32 11.96 42.3171 11.96 41.08C11.96 39.8428 12.9629 38.84 14.2 38.84C15.4371 38.84 16.44 39.8428 16.44 41.08ZM41.08 41.08C41.08 42.3171 40.0771 43.32 38.84 43.32C37.6028 43.32 36.6 42.3171 36.6 41.08C36.6 39.8428 37.6028 38.84 38.84 38.84C40.0771 38.84 41.08 39.8428 41.08 41.08Z"
+                    stroke="#F8F1E5" stroke-width="4.48" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <div class="logo" style="margin: 19px 0px 27px 35px;"></div>
+        </nav>
+        <div class="top">
+            <div class="circle" style="margin: 67px 0px 0px 520px;"></div>
+            <h1 class="yatra-one-regular"> Top Sold Products </h1>
+            <div class="circle" style="margin: 67px 0px 0px 1030px;"></div>
+        </div>
+        <div class="card">
+            <div>
+                <p class="yatra-one-regular price" > &#8377 2000 </p>
+                <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product">
+                <p class="merriweather-sans name"> Brass Bowl & <br> Diyas </p>
+            </div>
+            <div>
+                <p class="yatra-one-regular price"> &#8377 500 </p>
+                <img src="{% static 'images/cashmereShawl.webp' %}" alt="product" class="product">
+                <p class="merriweather-sans name"> Cashmere Shawl </p>
+            </div>
+            <div>
+                <p class="yatra-one-regular price"> &#8377 2000 </p>
+                <img src="{% static 'images/juteBag.jpg' %}" alt="product" class="product">
+                <p class="merriweather-sans name"> Jute Bag </p>
+            </div>
+            <div>
+                <p class="yatra-one-regular price" > &#8377 3000 </p>
+                <img src="{% static 'images/neklaceSet.jpg' %}" alt="product" class="product">
+                <p class="merriweather-sans name"> Necklace Set </p>
+            </div>
+            <div>
+                <p class="yatra-one-regular price" > &#8377 7000 </p>
+                <img src="{% static 'images/ganeshIdol.webp' %}" alt="product" class="product" >
+                <p class="merriweather-sans name" > Ganesh Idol </p>
+            </div>
+            <div>
+                <p class="yatra-one-regular price"> &#8377 2000 </p>
+                <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product">
+                <p class="merriweather-sans name"> Brass Bowl & <br> Diyas </p>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <ul class="header yatra-one-regular" style="margin-top: 81px;">
+            <li> Products To Explore </li>
+        </ul>
+        <div class="dropdowns">
+            <select name="Products" class="yatra-one-regular dropdown" style="margin: 12px 22px 0px 77px;">
+                <option value="All Products"> All Products </option>
+                <option value="Brass Bowl & Diyas"> Brass Bowl & Diyas </option>
+                <option value="Cashmere Shawl"> Cashmere Shawl </option>
+                <option value="Jute Bag"> Jute Bag </option>
+            </select>
+            <select name="Price" class="yatra-one-regular dropdown" style="margin: 12px 22px 0px 0px;">
+                <option value="All Prices"> &#8377 10,000</option>
+                <option value="&#8377 500 - &#8377 1000"> &#8377 500 - &#8377 1000 </option>
+                <option value="&#8377 1000 - &#8377 2000"> &#8377 1000 - &#8377 2000 </option>
+                <option value="&#8377 2000 - &#8377 3000"> &#8377 2000 - &#8377 3000 </option>
+            </select>
+            <select name="location" class="yatra-one-regular dropdown" style="margin: 12px 0px 0px 0px;">
+                <option value="All Locations"> Maharashtra </option>
+                <option value="Delhi"> Delhi </option>
+                <option value="Mumbai"> Mumbai </option>
+                <option value="Kolkata"> Kolkata </option>
+            </select>
+        </div>
+        <div class="card1">
+            <div>
+                <p class="yatra-one-regular price1"> &#8377 2000 </p>
+                <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Brass Bowl & <br> Diyas </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 500 </p>
+                <img src="{% static 'images/cashmereShawl.webp' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Cashmere Shawl </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 2000 </p>
+                <img src="{% static 'images/juteBag.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Jute Bag </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 3000 </p>
+                <img src="{% static 'images/neklaceSet.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Necklace Set </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 7000 </p>
+                <img src="{% static 'images/ganeshIdol.webp' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Ganesh Idol </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 2000 </p>
+                <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Brass Bowl & <br> Diyas </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 500 </p>
+                <img src="{% static 'images/cashmereShawl.webp' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Cashmere Shawl </p>
+            </div>
+        </div>
+    </div>
+    <div class="container3">
+        <ul class="header yatra-one-regular" style="margin-top: 55.8px;">
+            <li> Products for you </li>
+        </ul>
+        <div class="card1">
+            <div>
+                <p class="yatra-one-regular price1"> &#8377 2000 </p>
+                <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Brass Bowl & <br> Diyas </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 500 </p>
+                <img src="{% static 'images/cashmereShawl.webp' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Cashmere Shawl </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 2000 </p>
+                <img src="{% static 'images/juteBag.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Jute Bag </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 3000 </p>
+                <img src="{% static 'images/neklaceSet.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Necklace Set </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 7000 </p>
+                <img src="{% static 'images/ganeshIdol.webp' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Ganesh Idol </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 2000 </p>
+                <img src="{% static 'images/brassDiya.jpg' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Brass Bowl & <br> Diyas </p>
+            </div>
+            <div style="margin-left: 30px;">
+                <p class="yatra-one-regular price1"> &#8377 500 </p>
+                <img src="{% static 'images/cashmereShawl.webp' %}" alt="product" class="product1">
+                <p class="merriweather-sans name1"> Cashmere Shawl </p>
+            </div>
+        </div>
+    </div>
+    <div class="container3">
+        <ul class="header yatra-one-regular" style="margin-top: 85.8px;">
+            <li> Featured Categories </li>
+        </ul>
+        <div class="flexbox">
+            <div class="box1">
+                <h2 style="margin: 187px 119px 12px 27px;"> Handicrafts </h2>
+                <p> Terracotta art, wooden carvings,<br> brass decor, hand-painted wall art.</p>
+            </div>
+            <div style="display: grid;">
+                <div class="box2">
+                    <h2> Lifestyle </h2>
+                    <p> Jute & khadi tote bags, pots, leather <br> journals, eco-friendly gifts. </p>
+                </div>
+                <div class="box3">
+                    <h2> Jewelry </h2>
+                    <p> Terracotta, Kundan, oxidized silver,<br> lac bangles, tribal jewelry.</p>
+                </div>
+            </div>
+            <div class="box4">
+                <h2> Clothing </h2>
+                <p> Handwoven kurtas, sarees,<br> dresses, embroidered<br> dupattas, shawls.</p>
+            </div>
+            <div class="box5">
+                <h2> Festive </h2>
+                <p> Handmade sweets, snacks, brass idols, incense<br> sticks, traditional puja thalis. </p>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="person"></div>
+        <div class="info1">
+            <h1> Meet Artisan - Nilesh Agrawal </h1>
+            <p> Meet Nilesh Agrawal, a master potter from Gujarat with over 20 years of<br> craftsmanship. Blending
+                traditional Gujarati motifs with contemporary<br> designs, he creates hand-painted terracotta pots and
+                eco-friendly clay<br> dinnerware using locally sourced materials. His work, showcased at Rann<br> Utsav
+                and national craft fairs, reflects a deep commitment to heritage<br> and sustainability. Explore his
+                handcrafted pottery and bring home a<br> piece of Indian artistry!
+            </p>
+            <button> View Products </button>
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/home2.js' %}"></script>
+</html>

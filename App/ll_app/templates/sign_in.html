@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Yatra+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/sign_in.css' %}">
+</head>
+<body>    
+    <div class="mainContainer">
+        <div class="container1">
+            <div class="left-side">
+                <div style="display: flex;">
+                    <div class="logo"></div>
+                    <p class="logoname merriweather-sans">Logo here</p>
+                </div>
+                <h1 class="Welcome yatra-one-regular">Welcome Back<br><p></p>to LocalLoom!</h1>
+                <div class="right-side">
+                    <p class="description merriweather-sans">
+                        Bringing India's finest local treasures straight to your doorstep.
+                        Support artisans, celebrate tradition, and shop with pride!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container2">
+            <div class="subheading yatra-one-regular">Sign In</div>
+            <p style="margin-left: 100px; color: rgb(132, 2, 2); font-size: 140%;">Please fill the following fields</p>
+
+            <form method="POST" action="{% url 'sign_in' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="email" class="merriweather-sans"> Email/Mobile </label>
+                    <input id="email" name="email" type="text" required>
+                </div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="password" class="merriweather-sans"> Password </label>
+                    <input id="password" name="password" type="password" required>
+                </div>
+                <button type="submit" class="merriweather-sans"> Sign In </button>
+            </form>
+            <p class="create-account">
+                <a href="{% url 'sign_up1' %}"><u>Create Account</u></a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", function () {
+            {% if messages %}
+                {% for message in messages %}
+                    alert("{{ message|escapejs }}");
+                {% endfor %}
+                // Clear the messages to avoid showing again on reload
+                if (window.history.replaceState) {
+                    window.history.replaceState(null, null, window.location.pathname);
+                }
+            {% endif %}
+        });
+
+        // Listen for history changes (forward or backward)
+        window.addEventListener("popstate", function () {
+            location.reload();  // Refresh the page when navigating backward or forward
+        });
+
+        // Optional: Force a refresh when the page is initially loaded
+        if (window.history.state) {
+            location.reload();  // Reload the page on initial page load
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.product-card {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
